@@ -11,5 +11,6 @@ pokemon-random-info
 ├── styles
 │   └── main.css      # Estilo
 ├── scripts
-    └── app.js        # Script
+|    └── app.js        # Script
+├── README.md
 ```
