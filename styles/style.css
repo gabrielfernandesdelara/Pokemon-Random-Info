@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  parding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-image: radial-gradient(circle, #00000099 50%, #6328774f 100%),
+    url(../Src/Images/Fundo_pri.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.main-conteiner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteiner {
+    width: 500px;
+    padding: 16px;
+    border: 10px solid #e0dbeb4f;
+    border-radius: 36px;
+    background-color: #eae8f080;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+}
+
+button {
+  background: linear-gradient(90deg, #5600f5 0%, #7209b7 100%) !important;
+  border: none;
+  font-weight: 700;
+  color: #fff !important;
+  border-radius: 2rem;
+  padding: 0.6em 2em;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 12px rgba(114, 9, 183, 0.1);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #360492 0%, #4c057a 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 24px rgba(247, 37, 133, 0.18);
+  transform: translateY(-2px) scale(1.04);
+  text-shadow: 0 1px 8px #7209b733;
+}
