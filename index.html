@@ -18,22 +18,31 @@
     />
   </head>
   <body>
-    <div class="main-conteiner">
-      <div class="conteiner">
+    <div class="button_conteiner">
+      <div class="button_row">
+        <button id="btn_reset">Resetar Time</button>
+        <button id="btn_choose">Escolher Pokémon</button>
+        <button id="btn_pass">Passar Pokémon</button>
+      </div>
+    </div>
+    <div class="main_conteiner">
+      <div class="team_conteiner">
+        <p>Você só pode passar 10 vezes</p>
+        <h2>Seu Time:</h2>
+        <ul id="team_list"></ul>
+      </div>
+      <div class="builder_conteiner">
         <h1>Pokémon Random Info</h1>
-        <p>Aperte o botão para gerar um Pokémon aleatório</p>
-        <button id="btn-aleatorio">pokémon aleatório</button>
-        <div id="mensagem-carregando" class="hidden">
+        <p>Faça sua equipe!</p>
+        <p id="mensagem_Erp">Escolha, passe ou resete seu time de Pokémons!</p>
+        <div id="mensagem_carregando" class="hidden">
           <p>Carregando...</p>
         </div>
-        <div id="pokemon-info" class="hidden">
-          <h2 id="pokemon-nome"></h2>
-          <img id="pokemon-imagem" src="" alt="Imagem do Pokémon" />
-          <p id="pokemon-tipo"></p>
-          <p id="pokemon-habilidade"></p>
-        </div>
-        <div id="mensagem-erro" class="hidden">
-          <p>Erro ao carregar o Pokémon. Tente novamente.</p>
+        <div id="pokemon_info" class="hidden">
+          <h2 id="pokemon_nome"></h2>
+          <img id="pokemon_imagem" src="" alt="Imagem do Pokémon" />
+          <p id="pokemon_tipo"></p>
+          <p id="pokemon_geracao"></p>
         </div>
       </div>
     </div>

@@ -1,6 +1,4 @@
 body {
-  margin: 0;
-  parding: 0;
   min-height: 100vh;
   box-sizing: border-box;
   background-image: radial-gradient(circle, #00000099 50%, #6328774f 100%),
@@ -9,24 +7,49 @@ body {
   background-position: center;
 }
 
-.main-conteiner {
-  min-height: 100vh;
+.hidden {
+  display: none;
+}
+
+.button_row {
   display: flex;
+  gap: 16px;;
+  justify-content: center;
+}
+
+.main_conteiner {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.conteiner {
-    width: 500px;
-    padding: 16px;
-    border: 10px solid #e0dbeb4f;
-    border-radius: 36px;
-    background-color: #eae8f080;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 200px;
+.team_conteiner {
+  width: 500px;
+  padding: 16px;
+  border: 10px solid #eeeaf04f;
+  border-radius: 36px;
+  background-color: #efedf1c4;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+
+.builder_conteiner {
+  width: 500px;
+  min-height: 200px;
+  padding: 16px;
+  border: 10px solid #eeeaf04f;
+  border-radius: 36px;
+  background-color: #efedf1c4;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
@@ -46,7 +69,7 @@ button {
 button:hover {
   background: linear-gradient(90deg, #360492 0%, #4c057a 100%) !important;
   color: #fff !important;
-  box-shadow: 0 4px 24px rgba(247, 37, 133, 0.18);
+  box-shadow: 0 4px 24px rgba(80, 9, 211, 0.18);
   transform: translateY(-2px) scale(1.04);
   text-shadow: 0 1px 8px #7209b733;
 }
