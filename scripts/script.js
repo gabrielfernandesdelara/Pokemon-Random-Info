@@ -13,10 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxPass = 10;
 
     // Função para buscar dados do Pokémon pela API
-    const fetchPokemon = async (identificadoPokemon) => {
+    //async busca dados sem travar o site e await espera a resposta
+    const dadosPokemon = async (identificadoPokemon) => {
         try {
             mensagemCarregando.classList.remove('hidden');
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${identificadoPokemon}`);
+            //response é a resposta da API para javascript
             const data = await response.json();
             return {
                 nome: data.name,
@@ -32,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     async function mostrarPokemonAleatorio() {
         mensagemErp.classList.add('hidden');
         const randomId = Math.floor(Math.random() * 898) + 1;
-        const pokemon = await fetchPokemon(randomId);
+        const pokemon = await dadosPokemon(randomId);
         if (pokemon) {
             pokemonInfo.classList.remove('hidden');
             pokemonNome.textContent = pokemon.nome;
             pokemonImagem.src = pokemon.imagem;
-            pokemonImagem.alt = pokemon.nome;
 
             const tipos_Array = pokemon.tipos.split(', ');
             const tipos_Detalhados = await Promise.all(
