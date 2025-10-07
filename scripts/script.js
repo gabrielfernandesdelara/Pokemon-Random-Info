@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mensagemErp = document.getElementById("mensagem_Erp");
   const pokebola = document.querySelector('img[alt="Pokebola"]');
   const maxPass = 10;
+  const maxPokemon = 6;
 
   // Função para buscar dados do Pokémon pela API
   //async busca dados sem travar o site e await espera a resposta
@@ -59,6 +60,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function atualizarTeamPhrase() {
+    const team = JSON.parse(localStorage.getItem("team")) || [];
+    const teamPhrase = document.querySelector('.team_conteiner p:nth-child(2)');
+    const restantes = maxPokemon - team.length;
+    if (restantes > 0) {
+        teamPhrase.textContent = `Pegue mais ${restantes} Pokémon${restantes > 1 ? 's' : ''} para o seu time`;
+    } else {
+        teamPhrase.textContent = "Esse é seu time";
+    }
+}
+
   // Função para atualizar a lista do time na tela
   function atualizarTeamList() {
     const team = JSON.parse(localStorage.getItem("team")) || [];
@@ -68,11 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
       li.innerHTML = `<img src="${pokemon.imagem}" alt="${pokemon.nome}">${pokemon.nome} (${pokemon.tipos})`;
       teamList.appendChild(li);
     });
+    atualizarTeamPhrase();
   }
 
   // Função para adicionar Pokémon ao time e salvar no localStorage
   function adicionarPokemonAoTime(pokemon) {
     const team = JSON.parse(localStorage.getItem("team")) || [];
+    if (team.length >= maxPokemon) return;
+    if (team.some(p => p.nome === pokemon.nome)) return;
     team.push(pokemon);
     localStorage.setItem("team", JSON.stringify(team));
     atualizarTeamList();
@@ -81,17 +96,60 @@ document.addEventListener("DOMContentLoaded", () => {
   // Adiciona evento ao botão "Escolher Pokémon"
   btnChoose.addEventListener("click", () => {
     if (!pokemonInfo.classList.contains("hidden")) {
-      // Pega os dados do Pokémon exibido, incluindo a imagem
+      const team = JSON.parse(localStorage.getItem("team")) || [];
+      if (team.length >= maxPokemon) return;
       const pokemonEscolhido = {
         nome: pokemonNome.textContent,
         tipos: pokemonTipos.textContent.replace("Tipo: ", ""),
         imagem: pokemonImagem.src,
       };
+      // Impede repetidos
+      if (team.some(p => p.nome === pokemonEscolhido.nome)) return;
       adicionarPokemonAoTime(pokemonEscolhido);
     }
+  });
+
+  let passCount = maxPass;
+
+  const passText = document.querySelector('.team_conteiner p');
+
+  function atualizarPassText() {
+      passText.textContent = `Você só pode passar ${passCount} vezes`;
+  }
+
+  // Atualiza o texto ao carregar a página
+  atualizarPassText();
+
+  btnPass.addEventListener("click", () => {
+      if (passCount > 0) {
+          passCount--;
+          atualizarPassText();
+          mostrarPokemonAleatorio();
+          if (passCount === 0) {
+              btnPass.disabled = true;
+          }
+      }
+  });
+
+  btnReset.addEventListener("click", () => {
+      localStorage.removeItem("team");
+      atualizarTeamList();
+      passCount = maxPass;
+      atualizarPassText();
+      btnPass.disabled = false;
+      pokemonInfo.classList.add("hidden");
+      pokebola.classList.remove("hidden");
   });
 
   // Atualiza a lista do time ao carregar a página
   atualizarTeamList();
   btnPass.addEventListener("click", mostrarPokemonAleatorio);
+  btnReset.addEventListener("click", () => {
+    localStorage.removeItem("team");
+    atualizarTeamList();
+  });
+
+  const team = JSON.parse(localStorage.getItem("team")) || [];
+  if (team.length >= maxPokemon) btnChoose.disabled = true;
+  else btnChoose.disabled = false;
 });
