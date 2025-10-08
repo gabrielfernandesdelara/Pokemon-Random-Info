@@ -121,19 +121,19 @@ document.addEventListener("DOMContentLoaded", () => {
   atualizarPassText();
 
   btnPass.addEventListener("click", async () => {
-      if (passCount > 0) {
-          passCount--;
-          atualizarPassText();
-          await mostrarPokemonAleatorio();
-          if (passCount === 0) {
-              btnPass.disabled = true;
-              const team = JSON.parse(localStorage.getItem("team")) || [];
-              if (team.length < maxPokemon) {
-                await completarTimeAutomaticamente();
-              }
-            }
+  if (passCount > 0) {
+    passCount--;
+    atualizarPassText();
+    await mostrarPokemonAleatorio();
+    if (passCount === 0) {
+      btnPass.disabled = true;
+      const team = JSON.parse(localStorage.getItem("team")) || [];
+      if (team.length < maxPokemon) {
+        await completarTimeAutomaticamente();
       }
-  });
+    }
+  }
+});
 
   btnReset.addEventListener("click", () => {
       localStorage.removeItem("team");
