@@ -120,14 +120,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Atualiza o texto ao carregar a página
   atualizarPassText();
 
-  btnPass.addEventListener("click", () => {
+  btnPass.addEventListener("click", async () => {
       if (passCount > 0) {
           passCount--;
           atualizarPassText();
-          mostrarPokemonAleatorio();
+          await mostrarPokemonAleatorio();
           if (passCount === 0) {
               btnPass.disabled = true;
-          }
+              const team = JSON.parse(localStorage.getItem("team")) || [];
+              if (team.length < maxPokemon) {
+                await completarTimeAutomaticamente();
+              }
+            }
       }
   });
 
@@ -152,4 +156,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const team = JSON.parse(localStorage.getItem("team")) || [];
   if (team.length >= maxPokemon) btnChoose.disabled = true;
   else btnChoose.disabled = false;
+
+  async function completarTimeAutomaticamente() {
+    let team = JSON.parse(localStorage.getItem("team")) || [];
+    while (team.length < maxPokemon) {
+      const randomId = Math.floor(Math.random() * 898) + 1;
+      const pokemon = await dadosPokemon(randomId);
+      if (pokemon && !team.some(p => p.nome === pokemon.nome)) {
+        team.push({
+          nome: pokemon.nome,
+          tipos: pokemon.tipos,
+          imagem: pokemon.imagem
+        });
+        localStorage.setItem("team", JSON.stringify(team));
+        atualizarTeamList();
+      }
+    }
+  }
 });
