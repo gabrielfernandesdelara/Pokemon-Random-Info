@@ -1,0 +1,80 @@
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-image: radial-gradient(circle, #00000099 50%, #6328774f 100%),
+    url(../Src/Images/Fundo_pri.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.button_row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.main_conteiner {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.team_conteiner {
+  width: 500px;
+  padding: 16px;
+  border: 10px solid #eeeaf04f;
+  border-radius: 36px;
+  background-color: #efedf1c4;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+
+.builder_conteiner {
+  width: 500px;
+  min-height: 200px;
+  padding: 16px;
+  border: 10px solid #eeeaf04f;
+  border-radius: 36px;
+  background-color: #efedf1c4;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background: linear-gradient(90deg, #5600f5 0%, #7209b7 100%) !important;
+  border: none;
+  font-weight: 700;
+  color: #fff !important;
+  border-radius: 2rem;
+  padding: 0.6em 2em;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 12px rgba(114, 9, 183, 0.1);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #360492 0%, #4c057a 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 24px rgba(80, 9, 211, 0.18);
+  transform: translateY(-2px) scale(1.04);
+  text-shadow: 0 1px 8px #7209b733;
+}
+
+.builder_conteiner img {
+  width: 100px;
+  height: 100px;
+}

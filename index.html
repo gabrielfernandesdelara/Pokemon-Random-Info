@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokémon Random Info</title>
+    <title>Pokémon Randomizer Team</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
@@ -18,24 +18,30 @@
     />
   </head>
   <body>
+    <div class="fundo-superior"></div>
     <div class="button_conteiner">
       <div class="button_row">
         <button id="btn_reset">Resetar Time</button>
         <button id="btn_choose">Escolher Pokémon</button>
         <button id="btn_pass">Passar Pokémon</button>
       </div>
-    </div>
-    <div class="main_conteiner">
       <div class="team_conteiner">
-        <p>Você só pode passar 10 vezes</p>
-        <p>Pegue mais 6 Pokémons para o seu time</p>
         <h2>Seu Time:</h2>
         <ul id="team_list"></ul>
       </div>
-      <div class="builder_conteiner">
-        <h1>Pokémon Random Info</h1>
-        <p>Faça sua equipe!</p>
-        <p id="mensagem_Erp">Escolha, passe ou resete seu time de Pokémons!</p>
+    </div>
+    <div class="sobre_conteiner">
+      <div class="sobre">
+        <h1>Pokemon Randomizer Team</h1>
+        <h2>Como funciona?</h2>
+        <p>Você pode montar um time com 6 Pokémons, escolhendo ou passando os Pokémons que aparecem.</p>
+        <p>Sempre que passar um Pokémon, um novo aparecerá, mas você perde 1 de 10 chances que você tem para passar os Pokémons.</p>
+        <p>Se quiser, pode resetar o seu time a qualquer momento.</p>
+        <p>Divirta-se!</p>
+      </div>
+    </div>
+    <div class="main_conteiner">
+      <div class="pokemon_conteiner">
         <img src="Src/Images/pokebola.png" alt="Pokebola" />
         <div id="mensagem_carregando" class="hidden">
           <p>Carregando...</p>
