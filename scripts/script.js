@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const pokemonImagem = document.getElementById("pokemon_imagem");
   const pokemonTipos = document.getElementById("pokemon_tipo");
   const mensagemCarregando = document.getElementById("mensagem_carregando");
-  const mensagemErp = document.getElementById("mensagem_Erp");
   const pokebola = document.querySelector('img[alt="Pokebola"]');
   const maxPass = 10;
   const maxPokemon = 6;
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Função para mostrar um Pokémon aleatório junto com o tipo
   async function mostrarPokemonAleatorio() {
-    mensagemErp.classList.add("hidden");
     pokebola.classList.add("hidden");
     const randomId = Math.floor(Math.random() * 898) + 1;
     const pokemon = await dadosPokemon(randomId);
@@ -60,27 +58,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function atualizarTeamPhrase() {
-    const team = JSON.parse(localStorage.getItem("team")) || [];
-    const teamPhrase = document.querySelector('.team_conteiner p:nth-child(2)');
-    const restantes = maxPokemon - team.length;
-    if (restantes > 0) {
-        teamPhrase.textContent = `Pegue mais ${restantes} Pokémon${restantes > 1 ? 's' : ''} para o seu time`;
-    } else {
-        teamPhrase.textContent = "Esse é seu time";
-    }
-}
-
   // Função para atualizar a lista do time na tela
   function atualizarTeamList() {
     const team = JSON.parse(localStorage.getItem("team")) || [];
-    teamList.innerHTML = "";
-    team.forEach((pokemon) => {
-      const li = document.createElement("li");
-      li.innerHTML = `<img src="${pokemon.imagem}" alt="${pokemon.nome}">${pokemon.nome} (${pokemon.tipos})`;
-      teamList.appendChild(li);
-    });
-    atualizarTeamPhrase();
+    for (let i = 0; i < maxPokemon; i++) {
+      const slot = document.getElementById(`slot${i + 1}`);
+      const nome = document.getElementById(`nome${i + 1}`);
+      // A classe "vazio" deixa a pokébola apagada (ver .team_slot.vazio no CSS)
+      slot.parentElement.classList.toggle("vazio", !team[i]);
+      if (team[i]) {
+        slot.src = team[i].imagem;
+        slot.alt = team[i].nome;
+        slot.title = `${team[i].nome} (${team[i].tipos})`;
+        nome.textContent = team[i].nome;
+      } else {
+        slot.src = "Src/Images/pokebola.png";
+        slot.alt = "Espaço vazio";
+        slot.title = "";
+        nome.textContent = "";
+      }
+    }
   }
 
   // Função para adicionar Pokémon ao time e salvar no localStorage
@@ -111,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let passCount = maxPass;
 
-  const passText = document.querySelector('.team_conteiner p');
+  const passText = document.querySelector('.team_phrase');
 
   function atualizarPassText() {
       passText.textContent = `Você só pode passar ${passCount} vezes`;
@@ -147,11 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Atualiza a lista do time ao carregar a página
   atualizarTeamList();
-  btnPass.addEventListener("click", mostrarPokemonAleatorio);
-  btnReset.addEventListener("click", () => {
-    localStorage.removeItem("team");
-    atualizarTeamList();
-  });
 
   const team = JSON.parse(localStorage.getItem("team")) || [];
   if (team.length >= maxPokemon) btnChoose.disabled = true;
