@@ -10,6 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link 
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" 
+      rel="stylesheet"
+    />
     <link
       rel="shortcut icon"
       type="Image/png"
@@ -18,31 +23,31 @@
     />
   </head>
   <body>
-    <div class="fundo-superior"></div>
-    <div class="button_conteiner">
-      <div class="button_row">
+    <header>
+      <div class="sobre_container">
+        <h1>Pokémon Randomizer Team</h1>
+        <h2>Como funciona?</h2>
+        <ul>
+          <li>Um Pokémon aleatório aparece: escolha ou passe.</li>
+          <li>Escolher adiciona ele ao seu time, até completar 6.</li>
+          <li>Você tem 10 chances de passar.</li>
+          <li>Se as chances acabarem, o time é completado automaticamente.</li>
+          <li>Pode resetar o seu time a qualquer momento.</li>
+        </ul>
+        <p>Divirta-se!</p>
+      </div>
+      <div class="pass_container">
+        <p class="team_phrase"></p>
+      </div>
+      <div class="button_container">
         <button id="btn_reset">Resetar Time</button>
         <button id="btn_choose">Escolher Pokémon</button>
         <button id="btn_pass">Passar Pokémon</button>
       </div>
-      <div class="team_conteiner">
-        <h2>Seu Time:</h2>
-        <ul id="team_list"></ul>
-      </div>
-    </div>
-    <div class="sobre_conteiner">
-      <div class="sobre">
-        <h1>Pokemon Randomizer Team</h1>
-        <h2>Como funciona?</h2>
-        <p>Você pode montar um time com 6 Pokémons, escolhendo ou passando os Pokémons que aparecem.</p>
-        <p>Sempre que passar um Pokémon, um novo aparecerá, mas você perde 1 de 10 chances que você tem para passar os Pokémons.</p>
-        <p>Se quiser, pode resetar o seu time a qualquer momento.</p>
-        <p>Divirta-se!</p>
-      </div>
-    </div>
-    <div class="main_conteiner">
-      <div class="pokemon_conteiner">
-        <img src="Src/Images/pokebola.png" alt="Pokebola" />
+    </header>
+    <main>
+      <div class="pokemon_container">
+        <img src="Src/Images/pokebola.png" alt="Pokebola" height="80" width="80" />
         <div id="mensagem_carregando" class="hidden">
           <p>Carregando...</p>
         </div>
@@ -52,7 +57,18 @@
           <p id="pokemon_tipo"></p>
         </div>
       </div>
-    </div>
+      <div class="team_container">
+        <h2>Seu Time:</h2>
+        <ul id="team_list">
+          <li class="team_slot vazio"><img src="Src/Images/pokebola.png" alt="Espaço vazio" height="96" width="96" id="slot1"><span class="team_nome" id="nome1"></span></li>
+          <li class="team_slot vazio"><img src="Src/Images/pokebola.png" alt="Espaço vazio" height="96" width="96" id="slot2"><span class="team_nome" id="nome2"></span></li>
+          <li class="team_slot vazio"><img src="Src/Images/pokebola.png" alt="Espaço vazio" height="96" width="96" id="slot3"><span class="team_nome" id="nome3"></span></li>
+          <li class="team_slot vazio"><img src="Src/Images/pokebola.png" alt="Espaço vazio" height="96" width="96" id="slot4"><span class="team_nome" id="nome4"></span></li>
+          <li class="team_slot vazio"><img src="Src/Images/pokebola.png" alt="Espaço vazio" height="96" width="96" id="slot5"><span class="team_nome" id="nome5"></span></li>
+          <li class="team_slot vazio"><img src="Src/Images/pokebola.png" alt="Espaço vazio" height="96" width="96" id="slot6"><span class="team_nome" id="nome6"></span></li>
+        </ul>
+      </div>
+    </main>
     <script src="scripts/script.js"></script>
   </body>
 </html>
