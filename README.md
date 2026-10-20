@@ -111,7 +111,8 @@ Pokemon-Random-Info/
 - [x] Sistema de passes limitados
 - [x] Preenchimento automático do time
 - [x] Time salvo no navegador
-- [ ] Design reformulado
+- [x] Design reformulado
+- [ ] Design responsivo
 
 ## Aviso legal
 
