@@ -73,6 +73,13 @@ main {
   transform: scale(1.05);
 }
 
+.button_container button:disabled {
+  background-color: #C7D2FE;
+  cursor: not-allowed;
+  transform: none;
+  color:#3730A3;
+}
+
 .pokemon_container {
   flex-grow: 1;
   display: flex;

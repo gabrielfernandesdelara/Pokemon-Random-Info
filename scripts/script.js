@@ -78,6 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
         nome.textContent = "";
       }
     }
+    if (team.length >= maxPokemon) {
+      btnChoose.disabled = true;
+      btnPass.disabled = true;
+      passText.textContent = "Seu time está completo!";
+    } else {
+      btnChoose.disabled = false;
+      btnPass.disabled = passCount === 0;
+    }
   }
 
   // Função para adicionar Pokémon ao time e salvar no localStorage
@@ -111,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const passText = document.querySelector('.team_phrase');
 
   function atualizarPassText() {
-      passText.textContent = `Você só pode passar ${passCount} vezes`;
+    passText.textContent = `Você só pode passar ${passCount} vezes`;
   }
 
   // Atualiza o texto ao carregar a página
@@ -144,10 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Atualiza a lista do time ao carregar a página
   atualizarTeamList();
-
-  const team = JSON.parse(localStorage.getItem("team")) || [];
-  if (team.length >= maxPokemon) btnChoose.disabled = true;
-  else btnChoose.disabled = false;
 
   async function completarTimeAutomaticamente() {
     let team = JSON.parse(localStorage.getItem("team")) || [];
