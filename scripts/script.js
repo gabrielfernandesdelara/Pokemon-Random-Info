@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //response é a resposta da API para javascript
       const data = await response.json();
       return {
-        nome: data.name,
+        nome: data.name.replaceAll("-", " "),
         imagem:
           data.sprites.versions["generation-v"]["black-white"].front_default,
         tipos: data.types.map((typeInfo) => typeInfo.type.name).join(", "),
