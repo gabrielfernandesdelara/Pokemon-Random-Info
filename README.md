@@ -15,7 +15,7 @@ Escolha ou passe cada Pokémon sorteado até completar seu time de seis.</p>
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/status-em%20finalizado-brightgreen?style=for-the-badge" alt="Status" />
   <img src="https://img.shields.io/github/last-commit/gabrielfernandesdelara/Pokemon-Random-Info?style=for-the-badge&label=%C3%BAltimo%20commit" alt="Último commit" />
 </p>
 
@@ -112,7 +112,7 @@ Pokemon-Random-Info/
 - [x] Preenchimento automático do time
 - [x] Time salvo no navegador
 - [x] Design reformulado
-- [ ] Design responsivo
+- [x] Design responsivo
 
 ## Aviso legal
 
