@@ -168,3 +168,57 @@ main {
   text-transform: capitalize;
   overflow-wrap: anywhere;
 }
+
+@media (max-width: 600px) {
+  .sobre_container {
+    max-width: 350px;
+    padding: 10px;
+  }
+
+  .sobre_container h1 {
+  font-size: 1.5rem;
+  } 
+
+  .button_container {
+    padding: 10px;
+  }
+
+  #pokemon_nome {
+    font-size: 1.5rem;
+  }
+
+  #pokemon_tipo {
+    font-size: 1rem;
+  }
+
+  #pokemon_imagem {
+    width: 192px;
+    height: 192px; 
+  }
+
+  #pokemon_info {
+    width: 300px;
+  }
+
+  .team_nome {
+    font-size: 0.65rem;
+  }
+
+  .team_container {
+    max-width: 350px;
+    padding: 10px;
+  }
+
+  .team_container li {
+    width: 48px;
+  }
+
+  .team_slot img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .team_slot:not(.vazio) img {
+    transform: scale(1.2);
+  }
+}
