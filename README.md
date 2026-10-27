@@ -15,7 +15,7 @@ Escolha ou passe cada Pokémon sorteado até completar seu time de seis.</p>
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/status-em%20finalizado-brightgreen?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/status-%20finalizado-brightgreen?style=for-the-badge" alt="Status" />
   <img src="https://img.shields.io/github/last-commit/gabrielfernandesdelara/Pokemon-Random-Info?style=for-the-badge&label=%C3%BAltimo%20commit" alt="Último commit" />
 </p>
 
@@ -39,12 +39,11 @@ Escolha ou passe cada Pokémon sorteado até completar seu time de seis.</p>
 
 ## Sobre o projeto
 
-<!-- Salve um print em Src/Images/screenshot.png e descomente:
+
 <div align="center">
-  <img src="Src/Images/screenshot.png" alt="Página inicial do Pokemon-Random-Info" width="80%" />
-  <p><sub><em>Página inicial. O layout pode sofrer alterações.</em></sub></p>
+  <img src="Src/Images/readme.png" alt="Página inicial do Pokemon-Random-Info" width="80%" />
+  <p><sub><em>Página inicial.</em></sub></p>
 </div>
--->
 
 O **Pokemon-Random-Info** é um montador de times aleatórios. A cada sorteio aparece um Pokémon com nome, imagem e tipos, e você decide se ele entra no time ou se prefere passar a vez. Os passes são limitados, então cada escolha conta.
 
